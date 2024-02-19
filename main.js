@@ -2,7 +2,7 @@ const { readFileSync } = require("fs")
 const path = require('path')
 const { exit } = require("process")
 const Privs = JSON.parse(readFileSync(path.join(__dirname, 'praca_domowa.json')))
-const Range = 4
+const Range = 3 //4 to debugowanie było
 var a = true
 var sleepSetTimeout_ctrl;
 function dejkod(data) {
