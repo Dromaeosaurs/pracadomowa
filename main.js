@@ -1,13 +1,10 @@
 const { readFileSync } = require("fs")
 const path = require('path')
-const { exit } = require("process")
 const Privs = JSON.parse(readFileSync(path.join(__dirname, 'praca_domowa.json')))
-const Range = 3 //4 to debugowanie było
-var a = true
-var sleepSetTimeout_ctrl;
+const Range = 4
 function dejkod(data) {
   async function loskodos(kekw) {
-    console.log(`Sprawdzando kodu:${kekw.embeds[0].description.split('|')[2]}`)
+    console.log(`Sprawdzando kodu: ${kekw.embeds[0].description.split('|')[2]}`)
     await fetch("https://earthlegacy.pl/shop/giftcards/add", {
       "credentials": "include",
       "headers": {
@@ -26,7 +23,7 @@ function dejkod(data) {
       "body": `_token=${Privs.SiteToken}&code=${kekw.embeds[0].description.split('|')[2]}`,
       "method": "POST",
       "mode": "cors"
-    }).then(async (Response) => { console.log(Response.status) })
+    }).then(async (Response) => { console.log(Response.status); dupa() })
   }
   for (let x = 0; x < Range; x++) {
     if (data[x].embeds.length)
@@ -55,13 +52,4 @@ async function dupa() {
     "mode": "cors"
   }).then(async (Response) => { await Response.json().then((Resp) => { dejkod(Resp) }) })
 }
-function sleep(ms) {
-  clearInterval(sleepSetTimeout_ctrl);
-  return new Promise(resolve => sleepSetTimeout_ctrl = setTimeout(resolve, ms));
-}
-async function main() {
-  while (a == true) {
-    dupa()
-  }
-}
-main()
+dupa()
