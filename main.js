@@ -1,7 +1,7 @@
 const { readFileSync } = require("fs")
 const path = require('path')
 const Privs = JSON.parse(readFileSync(path.join(__dirname, 'praca_domowa.json')))
-const Range = 4
+const Range = 3
 function dejkod(data) {
   async function loskodos(kekw) {
     console.log(`Sprawdzando kodu: ${kekw.embeds[0].description.split('|')[2]}`)
