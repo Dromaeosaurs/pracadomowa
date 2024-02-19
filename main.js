@@ -23,11 +23,12 @@ function dejkod(data) {
       "body": `_token=${Privs.SiteToken}&code=${kekw.embeds[0].description.split('|')[2]}`,
       "method": "POST",
       "mode": "cors"
-    }).then(async (Response) => { console.log(Response.status); dupa() })
+    }).then(async (Response) => { console.log(Response.status) })
   }
   for (let x = 0; x < Range; x++) {
     if (data[x].embeds.length)
       loskodos(data[x])
+    dupa()
   }
 }
 async function dupa() {
